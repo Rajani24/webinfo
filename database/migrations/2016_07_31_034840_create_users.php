@@ -20,6 +20,7 @@ class CreateUsers extends Migration
             $table->date('dob');
             $table->string('phone');
             $table->string('password');
+            $table->string('educationcourse');
             $table->rememberToken();
             $table->integer('role_id')->unsigned();
             $table->foreign('role_id')->references('id')
