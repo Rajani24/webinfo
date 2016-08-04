@@ -14,12 +14,13 @@
             </tr>
             @foreach($users as $user)
             <tr>
+                <td></td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->address}}</td>
                 <td>{{$user->email}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->role->name}}</td>
-                <td>{{$user->name}}</td>
+                <td><a href="{{route('editUser',$user->id)}}"> Edit</a>/Delete</td>
             </tr>
             @endforeach
         </table>

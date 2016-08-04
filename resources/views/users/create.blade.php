@@ -2,9 +2,11 @@
 
 @section('content')
 
+
+
     <div class="row">
         <h2>Add User</h2>
-        <form action="{{Route('saveUser')}}" class="form" method="post">
+            <form action="{{Route('saveUser')}}" class="form" method="post">
             {{csrf_field()}}
             <div class="form-group"><label for="">Role</label>
                 <select name="role_id" id="" class="form-control">

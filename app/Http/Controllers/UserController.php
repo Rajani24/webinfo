@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     function index(){
 
-        $users =User::with('roles')->get();
+        $users =User::with('role')->get();
         return view('users.list', ['users' => $users] );
     }
 
@@ -25,6 +25,20 @@ class UserController extends Controller
 
     function store(Request $request){
 
-        dd($request->all() );
+        //dd($request->all() );
+        User::create($request->all());
+        //return redirect('users');
+        return redirect()->route('userList');
     }
+    function edit($id){
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('users.edit',['roles'=> $roles,'user'=>$user]);
+    }
+
+    function update(Request $request,$id){
+        $user = User::find($id);
+        $user->update($request->only('name','address','email','phone'));
+        //User::create($request->all());
+        return redirect()->route('userList');    }
 }
